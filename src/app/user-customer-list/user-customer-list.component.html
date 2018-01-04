@@ -1,0 +1,11 @@
+<ul>
+    <div *ngFor="let hostels of hostelsObservable | async">
+        <ngb-alert type="info" [dismissible]="false">
+            <h3><a href="#">{{hostels.hostel-name}}</a> </h3>
+            <p>{{hostels.hostel-name}}</p>
+            <div>
+                <a href="{{hostels.hostel-name}}" target="_blank" class="btn btn-danger">Go To Hostel</a>
+            </div>
+        </ngb-alert>
+    </div>
+</ul>

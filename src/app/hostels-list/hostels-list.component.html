@@ -1,0 +1,17 @@
+<ul>
+    <h3>Serviced Hostels</h3>
+    <hr>
+    <div *ngFor="let hostel of hostelsObservable | async ">
+        <ngb-alert type="info" [dismissible]="false">
+            <h3><a href="#">{{hostel.name}}</a> </h3>
+            <p>{{hostel.name}}</p>
+            <form action="" autocomplete="off" novalidate [formGroup]="form" (submit)="login()">
+                <input type="text" name="user" placeholder="Email Address" formControlName="email">
+                <input type="submit" name="login" value="Login">
+            </form>
+            <div>
+                <a href="{{hostel.name}}" target="_blank" class="btn btn-danger">Visit {{hostel.name}}</a>
+            </div>
+        </ngb-alert>
+    </div>
+</ul>

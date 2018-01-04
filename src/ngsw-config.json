@@ -1,0 +1,71 @@
+{
+    "index": "/index.html",
+    "assetGroups": [{
+        "name": "app",
+        "installMode": "prefetch",
+        "resources": {
+            "files": [
+                "/index.html"
+            ],
+            "versionedFiles": [
+                "/*.bundle.css",
+                "/*.bundle.js",
+                "/*.chunk.js"
+            ]
+        }
+    }, {
+        "name": "assets",
+        "installMode": "lazy",
+        "updateMode": "prefetch",
+        "resources": {
+            "files": [
+                "/assets/**"
+            ]
+        }
+    }],
+    "dataGroups": [{
+        "name": "api-freshness",
+        "urls": [
+            "/new"
+        ],
+        "cacheConfig": {
+            "maxSize": 100,
+            "maxAge": "1h",
+            "timeout": "10s",
+            "strategy": "freshness"
+        }
+    }, {
+        "name": "api-performance",
+        "urls": [
+            "/",
+            "/jobs",
+            "/show",
+            "/ask"
+        ],
+        "cacheConfig": {
+            "maxSize": 100,
+            "maxAge": "1d",
+            "strategy": "performance"
+        }
+    }],
+
+    "routing": {
+        "routes": {
+            "/": {
+                "match": true
+            },
+            "/search": {
+                "match": "prefix"
+            },
+            "/mylist": {
+                "match": "prefix"
+            }
+        }
+    },
+    "external": {
+        "urls": [{
+
+            "url": "https://fonts.gstatic.com/s/materialicons/v22/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2"
+        }]
+    }
+}
