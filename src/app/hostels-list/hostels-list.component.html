@@ -1,17 +1,50 @@
-<ul>
+<div class="container">
+    <h5>
+        {{'Users Email: '+ user$ }}
+    </h5>
+    <form autocomplete="off" novalidate [formGroup]="addHostelForm" (submit)="addHostel()">
+        <div class="row">
+
+            <div class="col-md-4"><input type="text" name="hostelName" placeholder="Hostel Name" formControlName="hostelName"></div>
+            <div class="col-md-4"><input type="text" name="serviceAgentsName" placeholder="Service Agents" formControlName="serviceAgentsName"></div>
+            <div class="col md-3 "><input type="submit" name="addHostel" class="float-right" value="Add Hostel"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Select Service Agents</label>
+                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                                      <option>John Bull</option>
+                                      <option>Tony Fox</option>
+                                      <option>Fhin Goo</option>
+                                      <option>Larry Hover</option>
+                                      <option>John Doe</option>
+                                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container">
     <h3>Serviced Hostels</h3>
     <hr>
-    <div *ngFor="let hostel of hostelsObservable | async ">
-        <ngb-alert type="info" [dismissible]="false">
-            <h3><a href="#">{{hostel.name}}</a> </h3>
-            <p>{{hostel.name}}</p>
-            <form action="" autocomplete="off" novalidate [formGroup]="form" (submit)="login()">
-                <input type="text" name="user" placeholder="Email Address" formControlName="email">
-                <input type="submit" name="login" value="Login">
-            </form>
-            <div>
-                <a href="{{hostel.name}}" target="_blank" class="btn btn-danger">Visit {{hostel.name}}</a>
-            </div>
-        </ngb-alert>
+    <div class="row border">
+
+        <div class="col-md-12">
+            <ul>
+                <div *ngFor="let hostel of hostelsObservable | async ">
+                    <ngb-alert type="info" [dismissible]="false">
+                        <h3><a href="#">{{hostel.name}}</a> </h3>
+
+                        <div>
+                            <a href="{{hostel.name}}" target="_blank" class="btn btn-danger">Visit {{hostel.name}}</a>
+                        </div>
+                    </ngb-alert>
+                </div>
+            </ul>
+
+        </div>
+
+
     </div>
-</ul>
+</div>
